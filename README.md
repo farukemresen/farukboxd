@@ -1,75 +1,17 @@
-# Nuxt Minimal Starter
+# review
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+- component kullanımı zayıf
+- route yönlendirmelerinde string değil obje kullanılmalı
+- default layout için kapsayıcı bir div bulunmuyor
+- nuxtın auto-import özelliği kullanılmalı gereksiz importlar kaldırılmalı
+- app.config.ts eksik
+- mediaları sergileme tercihin güzel ama her zaman 3 tane gözükmesi yanlış. (max ve min height ve width ayarlanarak her ekran ölçeğinde uygun sayıda gözükmesi sağlanmalı)
+- ofise gelirken yetişkin filtresini kapatmayı unutma :D
+- sanırım eslintinde hata var (sende çalışıyorsa sorun yok)
 
-## Setup
+# önemli
+- component kullanımını arttır
+- piniayı daha verimli kullan
 
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+# tavsiye
+- UCarousel den şimdilik vazgeçebilirsin tailwind kullanarak yapman senin için daha öğretici oalcaktır
