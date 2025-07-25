@@ -1,4 +1,4 @@
-@import "tailwindcss/preflight";  /* Eski @tailwind base yerine */
-@import "tailwindcss/utilities";  /* Eski components + utilities birleşti */
-@import "@nuxt/ui";               /* Nuxt UI bileşen stilleri */
+@import "tailwindcss/preflight";  
+@import "tailwindcss/utilities";  
+@import "@nuxt/ui";               
 

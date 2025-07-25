@@ -1,6 +1,7 @@
-<script setup lang ="ts">
+<script setup lang="ts">
 </script>
 
 <template>
-  <slot />
+  <Appheader />
+  <NuxtPage />
 </template>
