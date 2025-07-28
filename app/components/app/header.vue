@@ -3,8 +3,11 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const goToType = (type: 'movie' | 'tv') => {
-  router.push(`/${type}`)
+function goToType(type: 'movie' | 'tv') {
+  router.push({
+    name: 'type',
+    params: { type },
+  })
 }
 </script>
 
@@ -20,7 +23,7 @@ const goToType = (type: 'movie' | 'tv') => {
     </UButton>
     <UButton
       size="xl"
-     color="warning"
+      color="warning"
       variant="outline"
       @click="goToType('movie')"
     >

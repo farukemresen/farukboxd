@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { onMounted, computed } from 'vue'
+import { computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useMediaStore } from '~/stores/store'
 
 const route = useRoute()
@@ -15,49 +15,46 @@ const items = computed(() => {
       src: `https://image.tmdb.org/t/p/w300${movie.poster_path}`,
       title: movie.title || movie.name || 'İsim yok',
       id: movie.id,
+      type: 'movie' as const,
     }))
-  } else if (type === 'tv') {
+  }
+  else if (type === 'tv') {
     return mediaStore.tvShows.map(show => ({
       src: `https://image.tmdb.org/t/p/w300${show.poster_path}`,
       title: show.name || show.title || 'İsim yok',
       id: show.id,
+      type: 'tv' as const,
     }))
   }
   return []
 })
 
-function goToDetail(id: number | string) {
-  router.push(`/${type}/${id}`)
+function goToDetail(item: { id: string | number, type: 'movie' | 'tv' }) {
+  router.push({
+    name: 'type-id',
+    params: {
+      type: item.type,
+      id: item.id,
+    },
+  })
 }
 
 onMounted(() => {
   if (type === 'movie') {
     mediaStore.fetchMovies()
-  } else if (type === 'tv') {
+  }
+  else if (type === 'tv') {
     mediaStore.fetchTVShows()
   }
 })
-
 </script>
 
 <template>
   <section>
-    <h2 class="text-xl font-bold mb-4 capitalize">{{ type }} Listesi</h2>
-    <UCarousel
-      v-slot="{ item }"
-      loop
-      arrows
-      dots
+    <MediaCarousel
+      :title="type === 'movie' ? 'Popüler Filmler' : 'Popüler Diziler'"
       :items="items"
-      :ui="{ item: 'basis-1/3' }"
-    >
-      <div 
-        class="flex flex-col items-center gap-2 p-2 cursor-pointer"
-        @click="goToDetail(item.id)"
-      >
-        <img :src="item.src" width="170" height="170" class="rounded-lg" />
-        <p class="text-center text-sm font-semibold">{{ item.title }}</p>
-      </div>
-    </UCarousel>
+      :on-item-click="goToDetail"
+    />
   </section>
 </template>

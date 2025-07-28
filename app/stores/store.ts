@@ -1,5 +1,5 @@
+import type { Media, MediaType, PageResult } from '~/types'
 import { defineStore } from 'pinia'
-import type { Media, PageResult, MediaType } from '~/types'
 
 export const useMediaStore = defineStore('media', () => {
   const movies = ref<Media[]>([])
@@ -11,7 +11,7 @@ export const useMediaStore = defineStore('media', () => {
 
   async function fetchMovies() {
     const apiKey = config.public.tmdbApiKey
-    const url = `${config.public.tmdbBaseUrl}/movie/popular?api_key=${apiKey}`
+    const url = `${config.public.tmdbBaseUrl}/movie/popular?api_key=${apiKey}&include_adult=false`
     const res = await fetch(url)
     if (!res.ok) {
       movies.value = []
@@ -24,7 +24,7 @@ export const useMediaStore = defineStore('media', () => {
 
   async function fetchTVShows() {
     const apiKey = config.public.tmdbApiKey
-    const url = `${config.public.tmdbBaseUrl}/tv/popular?api_key=${apiKey}`
+    const url = `${config.public.tmdbBaseUrl}/tv/popular?api_key=${apiKey}&include_adult=false`
     const res = await fetch(url)
     if (!res.ok) {
       tvShows.value = []

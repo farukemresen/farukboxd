@@ -2,7 +2,6 @@
 import process from 'node:process'
 import tailwindcss from '@tailwindcss/vite'
 
-// eslint-disable-next-line no-undef
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
