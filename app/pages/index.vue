@@ -45,10 +45,19 @@ onMounted(() => {
     :items="movieItems"
     :on-item-click="goToDetail"
   />
-  <USeparator color="primary" type="solid" />
-  <MediaCarousel
-    title="Popüler Diziler"
-    :items="tvShowItems"
-    :on-item-click="goToDetail"
+  <USeparator
+    color="primary"
+    type="solid"
+    class="mt-5"
+    :avatar="{
+      src: 'https://github.com/nuxt.png',
+    }"
   />
+  <div class="mt-4">
+    <MediaCarousel
+      title="Popüler Diziler"
+      :items="tvShowItems"
+      :on-item-click="goToDetail"
+    />
+  </div>
 </template>

@@ -14,12 +14,12 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="mt-10">
-    <h2 class="text-xl font-bold mb-4">
+  <section class="mt-1">
+    <h2 class="text-xl font-bold mb-4 text-violet-500">
       {{ props.title }}
     </h2>
     <div
-      class="flex space-x-6 overflow-x-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-400 scrollbar-track-gray-200"
+      class="flex space-x-6 overflow-x-auto scrollbar-thin scrollbar-rounded"
       tabindex="0"
       role="list"
       aria-label="Media items"
@@ -39,7 +39,7 @@ const props = defineProps<{
         <img
           :src="item.src"
           alt=""
-          class="w-full h-48 object-cover rounded-lg shadow-md"
+          class="w-full h-76 object-contain rounded-lg shadow-md hover:scale-95 transition-all"
           loading="lazy"
         >
         <p class="mt-2 text-center text-sm font-semibold truncate" :title="item.title">
