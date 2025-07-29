@@ -7,6 +7,7 @@ const props = defineProps<{
     src: string
     title: string
     id: string | number
+    vote_average: number
     type: MediaType
   }[]
   onItemClick: (item: { id: string | number, type: MediaType }) => void
@@ -14,8 +15,8 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="mt-1">
-    <h2 class="text-xl font-bold mb-4 text-violet-500">
+  <section class="mt-1 pb-2 px-2">
+    <h2 class="text-xl font-bold mb-4 text-slate-300">
       {{ props.title }}
     </h2>
     <div
@@ -39,12 +40,15 @@ const props = defineProps<{
         <img
           :src="item.src"
           alt=""
-          class="w-full h-76 object-contain rounded-lg shadow-md hover:scale-95 transition-all"
+          class="w-full h-76 object-contain rounded-lg shadow-md hover:scale-95 transition-all hover:shadow-slate-600"
           loading="lazy"
         >
-        <p class="mt-2 text-center text-sm font-semibold truncate" :title="item.title">
+        <p class="mt-2 text-center text-sm font-semibold truncate text-sky-100" :title="item.title">
           {{ item.title }}
         </p>
+        <div class="mt-1 flex justify-center">
+          <MediaRating :rating="item.vote_average" />
+        </div>
       </div>
     </div>
   </section>

@@ -12,30 +12,49 @@ function goToType(type: 'movie' | 'tv') {
 </script>
 
 <template>
-  <header class="flex items-center justify-center gap-6 py-4">
-    <UButton
-      size="xl"
-      color="warning"
-      variant="outline"
-      @click="router.push('/')"
-    >
-      Anasayfa
-    </UButton>
-    <UButton
-      size="xl"
-      color="warning"
-      variant="outline"
-      @click="goToType('movie')"
-    >
-      Filmler
-    </UButton>
-    <UButton
-      size="xl"
-      color="warning"
-      variant="outline"
-      @click="goToType('tv')"
-    >
-      Diziler
-    </UButton>
+  <header class="flex items-center justify-between flex-wrap gap-y-4 px-4 py-4">
+    <div class="flex-shrink-0">
+      <img src="/logo3.gif" alt="Logo" class="h-20 w-auto">
+    </div>
+    <div class="flex flex-wrap justify-center gap-4 mx-auto">
+      <UButton
+        size="xl"
+        color="warning"
+        variant="outline"
+        class="hover:scale-105 transition-all"
+        @click="router.push('/')"
+      >
+        Anasayfa
+      </UButton>
+      <UButton
+        size="xl"
+        color="warning"
+        variant="outline"
+        class="hover:scale-105 transition-all"
+        @click="goToType('movie')"
+      >
+        Filmler
+      </UButton>
+      <UButton
+        size="xl"
+        color="warning"
+        variant="outline"
+        class="hover:scale-105 transition-all"
+        @click="goToType('tv')"
+      >
+        Diziler
+      </UButton>
+    </div>
+    <div class="flex-shrink-0">
+      <USwitch
+        color="warning"
+        checked-icon="i-heroicons-sun"
+        unchecked-icon="i-heroicons-moon"
+        size="lg"
+        variant="solid"
+        class="hover:scale-110 transition-all"
+        @click="toggleTheme"
+      />
+    </div>
   </header>
 </template>

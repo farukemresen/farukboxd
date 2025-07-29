@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useMediaStore } from '~/stores/store'
+import { useMediaStore } from '~/stores/discover'
 
 const route = useRoute()
 const router = useRouter()
@@ -16,6 +16,7 @@ const items = computed(() => {
       title: movie.title || movie.name || 'İsim yok',
       id: movie.id,
       type: 'movie' as const,
+      vote_average: movie.vote_average,
     }))
   }
   else if (type === 'tv') {
@@ -24,6 +25,7 @@ const items = computed(() => {
       title: show.name || show.title || 'İsim yok',
       id: show.id,
       type: 'tv' as const,
+      vote_average: show.vote_average,
     }))
   }
   return []

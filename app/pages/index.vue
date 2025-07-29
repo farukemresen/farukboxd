@@ -3,7 +3,7 @@ import type { MediaType } from '~/types'
 
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useMediaStore } from '~/stores/store'
+import { useMediaStore } from '~/stores/discover'
 
 const mediaStore = useMediaStore()
 const router = useRouter()
@@ -14,6 +14,7 @@ const movieItems = computed(() =>
     title: movie.title || movie.name || 'İsim yok',
     id: movie.id,
     type: 'movie' as MediaType,
+    vote_average: movie.vote_average,
   })),
 )
 
@@ -23,6 +24,7 @@ const tvShowItems = computed(() =>
     title: show.name || show.title || 'İsim yok',
     id: show.id,
     type: 'tv' as MediaType,
+    vote_average: show.vote_average,
   })),
 )
 
@@ -46,7 +48,7 @@ onMounted(() => {
     :on-item-click="goToDetail"
   />
   <USeparator
-    color="primary"
+    color="secondary"
     type="solid"
     class="mt-5"
     :avatar="{
