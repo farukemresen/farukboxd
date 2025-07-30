@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="min-h-dvh bg-white dark:bg-neutral-900">
+  <div class="min-h-dvh flex flex-col overflow-y-auto ">
     <div
       class="fixed left-0 top-0 w-screen h-dvh flex flex-col overflow-y-auto
          bg-gradient-to-br
@@ -31,8 +31,9 @@
           />
         </div>
       </div>
-      <AppHeader />
+      <AppHeader class="sticky top-0 z-40 bg-transparent backdrop-blur-sm" />
       <NuxtPage />
+      <AppFooter class="bottom-0 z-40 bg-transparent backdrop-blur-sm " />
     </div>
   </div>
 </template>

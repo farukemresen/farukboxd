@@ -16,34 +16,31 @@ function goToType(type: 'movie' | 'tv') {
     <div class="flex-shrink-0">
       <img src="/logo3.gif" alt="Logo" class="h-20 w-auto">
     </div>
-    <div class="flex flex-wrap justify-center gap-4 mx-auto">
+    <div class="flex flex-wrap justify-center gap-6 mx-auto">
       <UButton
         size="xl"
         color="warning"
         variant="outline"
-        class="hover:scale-105 transition-all"
+        icon="i-lucide-home"
+        class="w-12 justify-center hover:scale-105 transition-all"
         @click="router.push('/')"
-      >
-        Anasayfa
-      </UButton>
+      />
       <UButton
         size="xl"
         color="warning"
         variant="outline"
-        class="hover:scale-105 transition-all"
+        icon="i-lucide-film"
+        class="w-12 justify-center hover:scale-105 transition-all"
         @click="goToType('movie')"
-      >
-        Filmler
-      </UButton>
+      />
       <UButton
         size="xl"
         color="warning"
         variant="outline"
-        class="hover:scale-105 transition-all"
+        icon="i-lucide-tv"
+        class="w-12 justify-center hover:scale-105 transition-all"
         @click="goToType('tv')"
-      >
-        Diziler
-      </UButton>
+      />
     </div>
     <div class="flex-shrink-0">
       <USwitch
