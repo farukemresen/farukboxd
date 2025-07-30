@@ -2,12 +2,12 @@
 </script>
 
 <template>
-  <div class="min-h-dvh flex flex-col overflow-y-auto ">
+  <div class="min-h-screen fixed ">
     <div
       class="fixed left-0 top-0 w-screen h-dvh flex flex-col overflow-y-auto
          bg-gradient-to-br
-         from-[#2d0404] via-[#1b0f29] to-[#382a19]
-         dark:from-[#beafaf] dark:via-[#6a5c8b] dark:to-[#9c8e87]"
+         from-[#4d0707] via-[#1b0f29] to-[#5d4528]
+         dark:from-[#beafaf] dark:via-[#74629e] dark:to-[#9c8e87]"
     >
       <div
         class="w-full absolute inset-x-0 -top-40 transform-gpu overflow-visible blur-3xl sm:-top-20 opacity-60 z-[-1]"

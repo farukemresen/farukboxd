@@ -33,11 +33,8 @@ const items = computed(() => {
 
 function goToDetail(item: { id: string | number, type: 'movie' | 'tv' }) {
   router.push({
-    name: 'type-id',
-    params: {
-      type: item.type,
-      id: item.id,
-    },
+    name: 'media-detail',
+    params: { type: item.type, id: item.id },
   })
 }
 

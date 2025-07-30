@@ -28,9 +28,9 @@ const tvShowItems = computed(() =>
   })),
 )
 
-function goToDetail(item: { id: string | number, type: MediaType }) {
+function goToDetail(item: { id: string | number, type: 'movie' | 'tv' }) {
   router.push({
-    name: 'type-id',
+    name: 'media-detail',
     params: { type: item.type, id: item.id },
   })
 }
@@ -50,12 +50,9 @@ onMounted(() => {
   <USeparator
     color="secondary"
     type="solid"
-    class="mt-5"
-    :avatar="{
-      src: 'https://github.com/nuxt.png',
-    }"
+    class="mt-3 py-4"
   />
-  <div class="mt-4">
+  <div class="mt-5">
     <MediaCarousel
       title="Popüler Diziler"
       :items="tvShowItems"

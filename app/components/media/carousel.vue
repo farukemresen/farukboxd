@@ -15,41 +15,42 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="mt-1 pb-2 px-2">
-    <h2 class="text-xl font-bold mb-4 text-slate-300">
-      {{ props.title }}
-    </h2>
+  <h2 class="text-xl font-bold mb-4 px-3 text-orange-500">
+    {{ props.title }}
+  </h2>
+  <UCarousel
+    v-slot="{ item }"
+    :items="items"
+    arrows
+    :ui="{
+      container: 'relative',
+      item: 'basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 flex justify-center',
+      arrows: 'mt-4 justify-between',
+
+    }"
+    class="w-full max-w-7xl mx-auto"
+  >
     <div
-      class="flex space-x-6 overflow-x-auto scrollbar-thin scrollbar-rounded"
-      tabindex="0"
-      role="list"
-      aria-label="Media items"
+      class="cursor-pointer w-[200px] sm:w-[220px] md:w-[240px]"
+      @click="onItemClick(item)"
     >
-      <div
-        v-for="item in props.items"
-        :key="item.id"
-        class="flex-shrink-0 cursor-pointer
-               min-w-[140px] max-w-[180px]
-               sm:min-w-[160px] sm:max-w-[200px]
-               md:min-w-[180px] md:max-w-[220px]
-               lg:min-w-[200px] lg:max-w-[240px]"
-        role="listitem"
-        tabindex="-1"
-        @click="props.onItemClick(item)"
-      >
+      <div class="aspect-[2/3] w-full">
         <img
           :src="item.src"
           alt=""
-          class="w-full h-76 object-contain rounded-lg shadow-md hover:scale-95 transition-all hover:shadow-slate-600"
+          class="w-full h-full object-cover rounded-lg shadow-md hover:scale-95 transition-all hover:shadow-slate-600"
           loading="lazy"
         >
-        <p class="mt-2 text-center text-sm font-semibold truncate text-sky-100" :title="item.title">
-          {{ item.title }}
-        </p>
-        <div class="mt-1 flex justify-center">
-          <MediaRating :rating="item.vote_average" />
-        </div>
+      </div>
+      <p
+        class="mt-2 text-center text-sm font-semibold truncate text-sky-100"
+        :title="item.title"
+      >
+        {{ item.title }}
+      </p>
+      <div class="mt-1 flex justify-center">
+        <MediaRating :rating="item.vote_average" />
       </div>
     </div>
-  </section>
+  </UCarousel>
 </template>
